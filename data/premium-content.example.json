@@ -1,0 +1,20 @@
+[
+  {
+    "id": "workout-001",
+    "title": "Advanced HIIT Training",
+    "description": "High-intensity interval training designed for premium members. 45-minute workout combining cardio and strength exercises.",
+    "videoUrl": "https://example.com/videos/advanced-hiit-training"
+  },
+  {
+    "id": "workout-002",
+    "title": "Yoga & Flexibility Masterclass",
+    "description": "Deep dive into advanced yoga poses and flexibility techniques. Perfect for improving mobility and reducing stress.",
+    "videoUrl": "https://example.com/videos/yoga-flexibility-masterclass"
+  },
+  {
+    "id": "workout-003",
+    "title": "Strength Building Fundamentals",
+    "description": "Premium strength training program focusing on compound movements and progressive overload principles.",
+    "videoUrl": "https://example.com/videos/strength-building-fundamentals"
+  }
+]

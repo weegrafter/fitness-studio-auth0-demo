@@ -1,0 +1,8 @@
+[
+  {
+    "userId": "auth0|example123",
+    "email": "user@example.com",
+    "timestamp": "2024-01-01T00:00:00.000Z",
+    "status": "pending"
+  }
+]
