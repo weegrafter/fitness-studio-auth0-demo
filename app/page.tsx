@@ -1,65 +1,143 @@
-import Image from "next/image";
+import { getUser } from '@/lib/auth0';
+import Link from 'next/link';
 
-export default function Home() {
+export default async function Home() {
+  const user = await getUser();
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      <div className="container mx-auto px-4 py-16">
+        {/* Header */}
+        <header className="mb-16 text-center">
+          <h1 className="text-5xl font-bold text-gray-900 mb-4">
+            FitFlow Studio
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-xl text-gray-600">
+            Your journey to wellness starts here
           </p>
+        </header>
+
+        {/* Auth Status */}
+        <div className="max-w-2xl mx-auto mb-12 p-6 bg-white rounded-lg shadow-md">
+          {user ? (
+            <div className="text-center">
+              <p className="text-lg mb-4">
+                Welcome back, <span className="font-semibold">{user.name || user.email}</span>!
+              </p>
+              <div className="flex gap-4 justify-center">
+                <Link
+                  href="/members"
+                  className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                >
+                  Members Area
+                </Link>
+                {user.roles?.includes('premium') && (
+                  <Link
+                    href="/premium"
+                    className="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition"
+                  >
+                    Premium Content
+                  </Link>
+                )}
+                <a
+                  href="/api/auth/logout"
+                  className="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition"
+                >
+                  Logout
+                </a>
+              </div>
+            </div>
+          ) : (
+            <div className="text-center">
+              <p className="text-lg mb-4">Ready to transform your fitness journey?</p>
+              <a
+                href="/api/auth/login"
+                className="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-lg font-semibold"
+              >
+                Sign In / Sign Up
+              </a>
+            </div>
+          )}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Membership Tiers */}
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-8 text-gray-900">
+            Membership Tiers
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Free Tier */}
+            <div className="bg-white p-8 rounded-lg shadow-md">
+              <h3 className="text-2xl font-bold mb-4 text-blue-600">Free Member</h3>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start">
+                  <span className="text-green-600 mr-2">✓</span>
+                  <span>Access to class schedules</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-600 mr-2">✓</span>
+                  <span>Book up to 3 classes per week</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-600 mr-2">✓</span>
+                  <span>Community forum access</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-600 mr-2">✓</span>
+                  <span>Monthly wellness newsletter</span>
+                </li>
+              </ul>
+              <p className="text-3xl font-bold text-gray-900">Free</p>
+            </div>
+
+            {/* Premium Tier */}
+            <div className="bg-gradient-to-br from-purple-600 to-indigo-600 p-8 rounded-lg shadow-lg text-white">
+              <h3 className="text-2xl font-bold mb-4">Premium Member</h3>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start">
+                  <span className="mr-2">✓</span>
+                  <span>Everything in Free</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2">✓</span>
+                  <span>Unlimited class bookings</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2">✓</span>
+                  <span>Exclusive workout videos</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2">✓</span>
+                  <span>Personal training sessions</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-2">✓</span>
+                  <span>Nutrition planning tools</span>
+                </li>
+              </ul>
+              <p className="text-3xl font-bold">$49/month</p>
+            </div>
+          </div>
         </div>
-      </main>
+
+        {/* CTA Section */}
+        {!user && (
+          <div className="max-w-2xl mx-auto mt-16 text-center">
+            <h2 className="text-2xl font-bold mb-4 text-gray-900">
+              Join Our Community Today
+            </h2>
+            <p className="text-gray-600 mb-6">
+              Start with a free membership and upgrade anytime to unlock premium features
+            </p>
+            <a
+              href="/api/auth/login"
+              className="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-lg font-semibold"
+            >
+              Get Started Free
+            </a>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
