@@ -21,7 +21,7 @@ export default async function Home() {
         <div className="max-w-2xl mx-auto mb-12 p-6 bg-white rounded-lg shadow-md">
           {user ? (
             <div className="text-center">
-              <p className="text-lg mb-4">
+              <p className="text-lg text-gray-900 mb-4">
                 Welcome back, <span className="font-semibold">{user.name || user.email}</span>!
               </p>
               <div className="flex gap-4 justify-center">
@@ -49,7 +49,7 @@ export default async function Home() {
             </div>
           ) : (
             <div className="text-center">
-              <p className="text-lg mb-4">Ready to transform your fitness journey?</p>
+              <p className="text-lg text-gray-900 mb-4">Ready to transform your fitness journey?</p>
               <a
                 href="/api/auth/login"
                 className="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-lg font-semibold"
@@ -72,19 +72,19 @@ export default async function Home() {
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start">
                   <span className="text-green-600 mr-2">✓</span>
-                  <span>Access to class schedules</span>
+                  <span class="text-gray-900">Access to class schedules</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-600 mr-2">✓</span>
-                  <span>Book up to 3 classes per week</span>
+                  <span class="text-gray-900">Book up to 3 classes per week</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-600 mr-2">✓</span>
-                  <span>Community forum access</span>
+                  <span class="text-gray-900">Community forum access</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-600 mr-2">✓</span>
-                  <span>Monthly wellness newsletter</span>
+                  <span class="text-gray-900">Monthly wellness newsletter</span>
                 </li>
               </ul>
               <p className="text-3xl font-bold text-gray-900">Free</p>

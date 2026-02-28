@@ -56,7 +56,7 @@ export default async function MembersPage() {
           <h2 className="text-2xl font-bold mb-4">Your Membership</h2>
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-lg">
+              <p className="text-lg text-gray-900">
                 Status: <span className="font-semibold">{isPremium ? 'Premium Member' : 'Free Member'}</span>
               </p>
               <p className="text-gray-700 mt-1">

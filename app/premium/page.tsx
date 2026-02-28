@@ -34,7 +34,7 @@ export default async function PremiumPage() {
             <h1 className="text-3xl font-bold text-gray-900 mb-4">
               Premium Access Required
             </h1>
-            <p className="text-lg text-gray-700 mb-6">
+            <p className="text-lg text-gray-900 text-gray-700 mb-6">
               This content is only available to Premium members.
             </p>
             <p className="text-gray-700 mb-8">
@@ -134,7 +134,7 @@ export default async function PremiumPage() {
         {/* Welcome Message */}
         <div className="bg-gradient-to-br from-purple-600 to-indigo-600 rounded-lg shadow-lg p-8 text-white mb-8">
           <h2 className="text-2xl font-bold mb-2">Welcome to Premium, {user.name || user.email?.split('@')[0]}!</h2>
-          <p className="text-lg">
+          <p className="text-lg text-gray-900 text-gray-900">
             Enjoy unlimited access to our exclusive workout library, personalized training plans, and premium features.
           </p>
         </div>
