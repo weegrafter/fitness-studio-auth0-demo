@@ -5,13 +5,13 @@ export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Public routes that don't need protection
-  const publicRoutes = ['/', '/api/auth'];
+  const publicRoutes = ['/', '/api/auth', '/verify-email'];
   if (publicRoutes.some(route => pathname.startsWith(route))) {
     return NextResponse.next();
   }
 
   // Protected routes requiring authentication
-  if (pathname.startsWith('/members') || pathname.startsWith('/premium')) {
+  if (pathname.startsWith('/members') || pathname.startsWith('/premium') || pathname.startsWith('/admin')) {
     // Check for session cookie
     const sessionCookie = request.cookies.get('appSession');
     
@@ -21,6 +21,10 @@ export async function middleware(request: NextRequest) {
       loginUrl.searchParams.set('returnTo', pathname);
       return NextResponse.redirect(loginUrl);
     }
+
+    // Note: Email verification check is handled at the page level
+    // because middleware doesn't have direct access to session data
+    // Pages use shouldEnforceEmailVerification() to check and redirect
   }
 
   return NextResponse.next();

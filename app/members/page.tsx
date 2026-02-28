@@ -1,12 +1,25 @@
 import { getUser } from '@/lib/auth0';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
+import { shouldEnforceEmailVerification, markFirstLoginComplete } from '@/lib/email-verification';
 
 export default async function MembersPage() {
   const user = await getUser();
 
   if (!user) {
     redirect('/api/auth/login?returnTo=/members');
+  }
+
+  // Check email verification
+  const { shouldEnforce, isFirstLogin } = await shouldEnforceEmailVerification();
+  
+  if (shouldEnforce) {
+    redirect('/verify-email');
+  }
+
+  // Mark first login complete if this is the first time
+  if (isFirstLogin && user.sub) {
+    await markFirstLoginComplete(user.sub);
   }
 
   const isPremium = user.roles?.includes('premium');
