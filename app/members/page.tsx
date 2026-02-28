@@ -34,7 +34,7 @@ export default async function MembersPage() {
             <div className="flex gap-4">
               <Link
                 href="/"
-                className="px-4 py-2 text-gray-600 hover:text-gray-900 transition"
+                className="px-4 py-2 text-gray-700 hover:text-gray-900 transition"
               >
                 Home
               </Link>
@@ -46,7 +46,7 @@ export default async function MembersPage() {
               </a>
             </div>
           </div>
-          <p className="text-gray-600 mt-2">
+          <p className="text-gray-700 mt-2">
             Welcome back, {user.name || user.email}!
           </p>
         </div>
@@ -59,7 +59,7 @@ export default async function MembersPage() {
               <p className="text-lg">
                 Status: <span className="font-semibold">{isPremium ? 'Premium Member' : 'Free Member'}</span>
               </p>
-              <p className="text-gray-600 mt-1">
+              <p className="text-gray-700 mt-1">
                 Email: {user.email}
                 {user.email_verified && (
                   <span className="ml-2 text-green-600 text-sm">✓ Verified</span>
@@ -92,10 +92,10 @@ export default async function MembersPage() {
               <div key={idx} className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 transition">
                 <div>
                   <p className="font-semibold text-gray-900">{session.class}</p>
-                  <p className="text-gray-600 text-sm">{session.day} at {session.time}</p>
+                  <p className="text-gray-700 text-sm">{session.day} at {session.time}</p>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm text-gray-600">{session.spots} spots left</p>
+                  <p className="text-sm text-gray-700">{session.spots} spots left</p>
                   <button className="mt-1 px-4 py-1 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 transition">
                     Book
                   </button>

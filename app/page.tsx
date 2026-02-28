@@ -12,7 +12,7 @@ export default async function Home() {
           <h1 className="text-5xl font-bold text-gray-900 mb-4">
             FitFlow Studio
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-700">
             Your journey to wellness starts here
           </p>
         </header>
@@ -126,7 +126,7 @@ export default async function Home() {
             <h2 className="text-2xl font-bold mb-4 text-gray-900">
               Join Our Community Today
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-700 mb-6">
               Start with a free membership and upgrade anytime to unlock premium features
             </p>
             <a

@@ -34,10 +34,10 @@ export default async function PremiumPage() {
             <h1 className="text-3xl font-bold text-gray-900 mb-4">
               Premium Access Required
             </h1>
-            <p className="text-lg text-gray-600 mb-6">
+            <p className="text-lg text-gray-700 mb-6">
               This content is only available to Premium members.
             </p>
-            <p className="text-gray-600 mb-8">
+            <p className="text-gray-700 mb-8">
               Upgrade your membership to access exclusive workout videos, personalized training plans, and more!
             </p>
             <div className="flex gap-4 justify-center">
@@ -111,13 +111,13 @@ export default async function PremiumPage() {
             <div className="flex gap-4">
               <Link
                 href="/members"
-                className="px-4 py-2 text-gray-600 hover:text-gray-900 transition"
+                className="px-4 py-2 text-gray-700 hover:text-gray-900 transition"
               >
                 Members Area
               </Link>
               <Link
                 href="/"
-                className="px-4 py-2 text-gray-600 hover:text-gray-900 transition"
+                className="px-4 py-2 text-gray-700 hover:text-gray-900 transition"
               >
                 Home
               </Link>
@@ -150,9 +150,9 @@ export default async function PremiumPage() {
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{video.title}</h3>
-                  <p className="text-gray-600 mb-4">{video.description}</p>
+                  <p className="text-gray-700 mb-4">{video.description}</p>
                   <div className="flex items-center justify-between">
-                    <div className="flex gap-4 text-sm text-gray-500">
+                    <div className="flex gap-4 text-sm text-gray-700">
                       <span>⏱️ {video.duration}</span>
                       <span>📊 {video.level}</span>
                     </div>
@@ -171,7 +171,7 @@ export default async function PremiumPage() {
           <div className="bg-white rounded-lg shadow-md p-6">
             <div className="text-4xl mb-4">📅</div>
             <h3 className="text-xl font-bold mb-2 text-gray-900">Personal Training</h3>
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-700 mb-4">
               Schedule one-on-one sessions with certified trainers
             </p>
             <button className="text-purple-600 font-semibold hover:text-purple-700 transition">
@@ -182,7 +182,7 @@ export default async function PremiumPage() {
           <div className="bg-white rounded-lg shadow-md p-6">
             <div className="text-4xl mb-4">🥗</div>
             <h3 className="text-xl font-bold mb-2 text-gray-900">Nutrition Plans</h3>
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-700 mb-4">
               Customized meal plans tailored to your fitness goals
             </p>
             <button className="text-purple-600 font-semibold hover:text-purple-700 transition">
@@ -193,7 +193,7 @@ export default async function PremiumPage() {
           <div className="bg-white rounded-lg shadow-md p-6">
             <div className="text-4xl mb-4">📊</div>
             <h3 className="text-xl font-bold mb-2 text-gray-900">Progress Tracking</h3>
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-700 mb-4">
               Advanced analytics and insights on your fitness journey
             </p>
             <button className="text-purple-600 font-semibold hover:text-purple-700 transition">
